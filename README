@@ -1,7 +1,11 @@
 GoTY (Go Troll Yourself) is a minimal irc client library implemented in Go.
 
-GoTY provides a connection object that gives access to a read and a write channel, direct access to the TCP socket, as well as Dial, Connect, and Close methods. Everything else is handled outside of the library.
+GoTY provides a connection object that gives access to a read and a write 
+channel, direct access to the TCP socket, as well as Dial, Connect, and Close 
+methods. Everything else is handled outside of the library.
 
-GoTY takes strong influence from Matt Gruen's irc.go: http://code.google.com/p/go-bot/source/browse/irc.go
+GoTY takes strong influence from Matt Gruen's irc.go: 
+http://code.google.com/p/go-bot/source/browse/irc.go
 
-GoTY is bundled with a small example IRC program, sic, which takes influence from the suckless.org simple irc client, sic: http://tools.suckless.org/sic
+GoTY is bundled with a small example IRC program, sic, which takes influence 
+from the suckless.org simple irc client, sic: http://tools.suckless.org/sic
