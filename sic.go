@@ -1,7 +1,7 @@
 package main
 
 import (
-	"./goty"
+	"goty"
 	"fmt"
 	"os"
 	"bufio"
