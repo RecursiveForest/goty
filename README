@@ -9,3 +9,5 @@ http://code.google.com/p/go-bot/source/browse/irc.go
 
 GoTY is bundled with a small example IRC program, sic, which takes influence 
 from the suckless.org simple irc client, sic: http://tools.suckless.org/sic
+
+Credit and thanks for the name goes to Uriel of cat-v.org: uriel.cat-v.org
