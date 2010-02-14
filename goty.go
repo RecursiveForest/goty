@@ -58,7 +58,7 @@ func (con *IRCConn) Connect(server, nick string) os.Error {
 						fmt.Fprintf(os.Stderr, "goty: write closed\n")
 						break
 					}
-					if err := w.WriteString(str + "\r\n"); err != nil {
+					if _, err := w.WriteString(str + "\r\n"); err != nil {
 						fmt.Fprintf(os.Stderr, "goty: write: %s\n", err.String())
 						break
 					}
