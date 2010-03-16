@@ -1,14 +1,20 @@
 package main
 
 import (
-	"goty"
-	"fmt"
-	"os"
 	"bufio"
+	"flag"
+	"fmt"
+	"goty"
+	"os"
 )
 
+var server *string = flag.String("server", "irc.freenode.org:6667", "Server to connect to in format 'irc.freenode.org:6667'")
+var nick *string = flag.String("nick", "goty-bot", "IRC nick to use")
+
 func main () {
-	if con, err := goty.Dial("irc.freenode.org:6667", "goty-bot"); err != nil {
+	flag.Parse()
+
+	if con, err := goty.Dial(*server, *nick); err != nil {
 		fmt.Fprintf(os.Stderr, "goty: %s\n", err.String())
 	} else {
 		in := bufio.NewReader(os.Stdin)
