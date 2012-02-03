@@ -9,14 +9,16 @@ import (
 )
 
 type IRCConn struct {
-	Sock        *net.TCPConn
-	Read, Write chan string
+	Sock         *net.TCPConn
+	Read, Write  chan string
+	Disconnected chan int
 }
 
 func Dial(server, nick string) (*IRCConn, error) {
 	read := make(chan string, 1000)
 	write := make(chan string, 1000)
-	con := &IRCConn{nil, read, write}
+	disconnected := make(chan int, 1000)
+	con := &IRCConn{nil, read, write, disconnected}
 	err := con.Connect(server, nick)
 	return con, err
 }
@@ -36,6 +38,7 @@ func (con *IRCConn) Connect(server, nick string) error {
 				for {
 					if str, err := r.ReadString(byte('\n')); err != nil {
 						fmt.Fprintf(os.Stderr, "goty: read: %s\n", err.Error())
+						con.Disconnected <- 1
 						break
 					} else {
 						if strings.HasPrefix(str, "PING") {
